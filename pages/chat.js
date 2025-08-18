@@ -1,16 +1,34 @@
-export default function handler(req, res) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method Not Allowed' });
-  }
+// pages/chat.js
+import { useState } from 'react';
 
-  const { message } = req.body;
+export default function ChatPage() {
+  const [message, setMessage] = useState('');
+  const [response, setResponse] = useState('');
 
-  if (!message) {
-    return res.status(400).json({ error: 'Message is required' });
-  }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const res = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message }),
+    });
+    const data = await res.json();
+    setResponse(data.message);
+  };
 
-  res.status(200).json({
-    message: `You said: ${message}`,
-    timestamp: new Date().toISOString(),
-  });
+  return (
+    <div style={{ padding: '2rem', fontFamily: 'system-ui' }}>
+      <h1>AI Receptionist Chat</h1>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          placeholder="Type your message"
+        />
+        <button type="submit">Send</button>
+      </form>
+      {response && <p>Response: {response}</p>}
+    </div>
+  );
 }
