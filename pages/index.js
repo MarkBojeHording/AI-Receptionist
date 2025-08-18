@@ -1,6 +1,13 @@
+import Head from 'next/head'
+
 export default function Home() {
   return (
     <div style={styles.container}>
+      <Head>
+        <title>AI Receptionist</title>
+        <meta name="description" content="AI Receptionist for automated customer service" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <h1 style={styles.title}>AI Receptionist</h1>
       <p style={styles.description}>Status: Running</p>
       <p style={styles.description}>API Endpoint: /api/chat</p>
