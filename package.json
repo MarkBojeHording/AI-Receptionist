@@ -3,17 +3,23 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3000",
+    "dev": "next dev",
     "build": "next build",
-    "start": "next start -p 3000"
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
     "airtable": "^0.12.2",
-    "next": "^14.0.0",
-    "openai": "^5.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "twilio": "^5.8.0"
+    "axios": "^1.7.2",
+    "google-generative-ai": "^0.14.1",
+    "next": "14.2.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "twilio": "^5.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^8",
+    "eslint-config-next": "14.2.3"
   },
   "engines": {
     "node": ">=18.0.0"
