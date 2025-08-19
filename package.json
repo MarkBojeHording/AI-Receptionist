@@ -11,7 +11,7 @@
   "dependencies": {
     "airtable": "^0.12.2",
     "axios": "^1.7.2",
-    "google-generative-ai": "^0.14.1",
+    "@google/generative-ai": "^0.14.1",
     "next": "14.2.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
