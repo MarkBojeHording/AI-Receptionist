@@ -17,12 +17,18 @@ export default async function handler(req, res) {
 
   try {
     const { From, To, Body } = req.body;
-    logSmsMessage({
-      from: From,
-      to: To,
-      body: Body,
-      channel: 'sms',
-    }).catch(console.error);
+    console.log('Attempting to log SMS to Airtable:', { From, To, Body });
+    try {
+      await logSmsMessage({
+        from: From,
+        to: To,
+        body: Body,
+        channel: 'sms',
+      });
+      console.log('SMS logged to Airtable successfully');
+    } catch (error) {
+      console.error('Failed to log SMS to Airtable:', error);
+    }
 
     // Generate AI response using OpenAI
     const completion = await openai.chat.completions.create({
