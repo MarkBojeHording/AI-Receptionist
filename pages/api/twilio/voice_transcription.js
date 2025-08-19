@@ -3,7 +3,7 @@
 // It logs the transcribed text to Airtable.
 
 import twilio from 'twilio';
-import { logVoiceCall } from '../../lib/airtable';
+import { logVoiceCall } from '../../../lib/airtable';
 
 export default async function handler(req, res) {
   // Ensure the request is a POST request from Twilio.
