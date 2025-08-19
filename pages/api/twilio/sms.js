@@ -2,8 +2,8 @@
 // Handles incoming SMS messages. Logs to Airtable and generates an AI response.
 
 import twilio from 'twilio';
-import { logSmsMessage } from '../../lib/airtable'; // Now it's only two levels up
-import { generateGeminiResponse } from '../../lib/gemini';
+import { logSmsMessage } from '../../../lib/airtable';
+import { generateGeminiResponse } from '../../../lib/gemini';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {

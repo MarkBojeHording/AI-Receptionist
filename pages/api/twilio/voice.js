@@ -2,7 +2,7 @@
 // Handles incoming voice calls. Gathers transcription and logs to Airtable.
 
 import twilio from 'twilio';
-import { logVoiceCall } from '../../lib/airtable'; // It was already two levels up
+import { logVoiceCall } from '../../../lib/airtable';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
