@@ -45,5 +45,3 @@ npm run dev
 4. Deploy
 
 The project will build successfully on Vercel with no additional configuration needed.
-
-Read.Me
