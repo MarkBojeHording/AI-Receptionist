@@ -27,7 +27,9 @@ export default async function handler(req, res) {
       });
       console.log('SMS logged to Airtable successfully');
     } catch (error) {
-      console.error('Failed to log SMS to Airtable:', error);
+      console.error('Failed to log SMS to Airtable:', error.message);
+      console.error('Error stack:', error.stack);
+      // Don't throw the error, just log it so the SMS still works
     }
 
     // Generate AI response using OpenAI
