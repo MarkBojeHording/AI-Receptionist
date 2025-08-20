@@ -33,6 +33,7 @@ export default async function handler(req, res) {
     }
 
     // Generate AI response using OpenAI
+    console.log('Generating AI response for:', Body);
     const completion = await openai.chat.completions.create({
       model: 'gpt-4o-mini',
       messages: [
@@ -49,10 +50,12 @@ export default async function handler(req, res) {
     });
 
     const aiResponse = completion.choices[0].message.content;
+    console.log('AI response generated:', aiResponse);
 
     const twiml = new twilio.twiml.MessagingResponse();
     twiml.message(aiResponse);
 
+    console.log('TwiML response:', twiml.toString());
     res.setHeader('Content-Type', 'text/xml');
     return res.status(200).send(twiml.toString());
   } catch (err) {
